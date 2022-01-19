@@ -21,7 +21,7 @@ namespace apis.Controllers
             service = new SqlDataService();
         }
 
-        [HttpGet("[action]")]
+        [HttpGet]
         public ActionResult<IEnumerable<SpotifyGroup>> Groups()
         {
             return Ok(service.GetAll());
