@@ -34,6 +34,7 @@ namespace apis.Services
                     {
                         Id = new Guid(Convert.ToString(rdr[0])),
                         Name = Convert.ToString(rdr[1]),
+                        Avatar = Convert.ToString(rdr[2]),
                     };
                     spotifyGroups.Add(group);
                 }
@@ -47,7 +48,7 @@ namespace apis.Services
 
         public void Post(SpotifyGroup group)
         {
-            var queryString = $"INSERT INTO SpotifyGroup (id, name) VALUES(N\'{group.Id}\',N\'{group.Name}\')";
+            var queryString = $"INSERT INTO SpotifyGroup (id, avatar, name) VALUES(N\'{group.Id}\',N\'{group.Avatar}\',N\'{group.Name}\')";
 
             try
             {

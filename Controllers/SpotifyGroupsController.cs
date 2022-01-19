@@ -33,7 +33,8 @@ namespace apis.Controllers
             SpotifyGroup groupToCreate = new ()
             {
                 Id = Guid.NewGuid(),
-                Name = group.Name
+                Name = group.Name,
+                Avatar = (group.Avatar == null || group.Avatar.Length == 0) ? null : group.Avatar
             };
 
             service.Post(groupToCreate);
