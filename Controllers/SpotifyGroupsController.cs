@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using apis.Services;
 using apis.Models;
 using apis.Dtos;
+using Microsoft.AspNetCore.Cors;
 
 namespace apis.Controllers
 {
@@ -14,11 +16,12 @@ namespace apis.Controllers
     [Route("[controller]")]
     public class SpotifyGroupsController : ControllerBase
     {
-        private readonly SqlDataService service;
+        private readonly IDataService service;
 
-        public SpotifyGroupsController()
+        public SpotifyGroupsController(IDataService service)
         {
-            service = new SqlDataService();
+            this.service = service;
+            Console.WriteLine("Creating a new Controller");
         }
 
         [HttpGet]
